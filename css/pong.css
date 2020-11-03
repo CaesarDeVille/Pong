@@ -1,28 +1,34 @@
-body{ /**éléments de bases (couleur, typographie, etc)**/
-    background-color: black;
-    color:white;
+body{
+    background-color: #000000;
+    color: #ffffff;
     font-family: monospace;
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    
+    /** permet de centrer les éléments dans la page **/
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
-#terrain{ /**caractéristique du terrain : position, bordure (ligne "imaginaire" qui ne fait pas encore rebondir la balle) et dimensions **/
+#terrain{
     position: relative;
-    border:1px solid white;
-    width:800px;
-    height:400px
+    
+    border: 1px solid white;
+    width: 800px;
+    height : 400px;
+    
 }
 
-#balle{ /**caractéristique de la balle : position, dimensions, couleur, etc**/
+#balle{
     position: absolute;
-    top:50%;
-    left:50%;
+    top : 50%;
+    left: 50%;
+
+    border-radius: 100%;
     width: 20px;
     height: 20px;
-    background-color:#fff;
-    border-radius: 10px;
+    background-color: #fff;
+
 }
