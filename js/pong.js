@@ -12,3 +12,13 @@ setInterval(function()
     $("#balle").css("left",gauche);
     $("#balle").css("top",haut);
 }, 10);
+
+class Terrain{
+    constructor(){
+      this.hauteur;
+      this.largeur;
+     
+    }
+}
+let Terrain=new Terrain($("terrain"));
+console.log(terrain);
