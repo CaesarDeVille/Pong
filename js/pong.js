@@ -1,24 +1,20 @@
-//Déclaration de variables
-let largeur = $("#balle").width();
-let gauche = parseInt($("#balle").css("left"));
-let haut = parseInt($("#balle").css("top"));
-//alert(gauche);
+//on cree un nouvel objet par les HTML/ CSS
+let terrain = new Terrain($("#terrain"));
 
-//boucle afin de modifier la position de la balle toutes les 10 millisecondes
+let balle = new Balle($("#balle"));
+
+let raquetteGauche = new Raquette($("#gauche"));
+let raquetteDroite = new Raquette($("#droite"));
+raquetteDroite.changeDirection();
+
+//boucle pour modifier les positions raquette, balles toutes les millis 
+//les if sont là pour créer du rebond
 setInterval(function()
 {
-    gauche = gauche+1;
-    haut = haut+0.5;
-    $("#balle").css("left",gauche);
-    $("#balle").css("top",haut);
-}, 10);
+    //on reprend les classes pour les faire agir
+    balle.bouger();
 
-class Terrain{
-    constructor(){
-      this.hauteur;
-      this.largeur;
-     
-    }
-}
-let Terrain=new Terrain($("terrain"));
-console.log(terrain);
+    raquetteGauche.bouger();
+    
+    raquetteDroite.bouger();
+}, 10);
