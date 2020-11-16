@@ -1,4 +1,4 @@
-//mise en place de la classe "raquette" 
+//Classe de creation d'un objet raquette
 class Raquette
 {
     constructor($element)

@@ -1,4 +1,4 @@
-//Mise en place de la classe "terrain" 
+//Classe de creation d'un objet terrain
 class Terrain
 {
     constructor($element)
@@ -11,14 +11,14 @@ class Terrain
 
     tilt()
     {
-        //ajout de la classe
+        //ajouter une classe
         this.$element.addClass("tilt");
         let ici = this;
 
         setTimeout(
             function()
             {
-                //on remove la classe
+                //retirer une classe
                 ici.$element.removeClass("tilt");
             },200
         );

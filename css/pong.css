@@ -1,35 +1,39 @@
-body{
+/** id > class **/
+body
+{
+    /** Fond noir, couleur blanche et typographie monospace **/
     background-color: #000000;
     color: #ffffff;
     font-family: monospace;
     
-    /** permet de centrer les éléments dans la page **/
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+    /** permet de centrer les elements dans la page **/
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
-/** parametrage du terrain **/
-#terrain{
+
+/** parametrage du ou des "objets" terrain **/
+#terrain
+{
     position: relative;
-    
-    width: 800px;
-    height : 400px;
 
     border:1px solid #000;
     border-top-color:#fff;
     border-bottom-color:#fff;
+    
+    width: 800px;
+    height : 400px;
 }
-
 .tilt{
-    border-color: rgb(255, 255, 255) !important;
+    border-color: rgb(0, 250, 0) !important;
 }
 
-
-/** parametrage de la balle**/
-#balle{
+/** parametrage du ou des "objets" balle **/
+#balle
+{
     position: absolute;
     top : 50%;
     left: 50%;
@@ -37,22 +41,21 @@ body{
     border-radius: 100%;
     width: 20px;
     height: 20px;
-    background-color: #fff;
-
+    background-color: rgb(255, 255, 255);
 }
 
-/** parametrage de la raquette **/
-#raquette
+/** parametrage du ou des "objets" raquette **/
+.raquette
 {
     position: absolute;
 
-    --hauteur: 25%; /* mise en place des variable */
-    
-    /*top : calc( 50% - var(--hauteur)/2 ); /** clac, faire des calculs en css // var utiliser la variable **/
+    --hauteur: 25%; /** definir une variable **/
+
+    top : calc( 50% - var(--hauteur)/2 ); /** clac, faire des calculs en css // var utiliser la variable **/
 
     width: 10px;
     height: var(--hauteur);
-    background-color: rgb(255, 255, 255);
+    background-color: #fff;
 }
 #droite
 {

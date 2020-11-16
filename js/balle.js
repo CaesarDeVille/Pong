@@ -11,8 +11,8 @@ class Balle
         this.positionX = parseInt($element.css("left"));
         this.positionY = parseInt($element.css("top"));
         
-        this.vitesseX = 3;
-        this.vitesseY = 2;
+        this.vitesseX = 2;
+        this.vitesseY = 0.5;
         this.angle = Math.random()*2*Math.PI;
     }
 
