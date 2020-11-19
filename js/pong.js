@@ -1,20 +1,27 @@
-//on creer un nouvel objet a partir de ceux de HTML/CSS
+//creation des objets
 let terrain = new Terrain($("#terrain"));
-
 let balle = new Balle($("#balle"));
-
-let raquetteGauche = new Raquette($("#gauche"));
+let joueur0 = new Joueur();
+let joueur1 = new Joueur();
 let raquetteDroite = new Raquette($("#droite"));
-raquetteDroite.changeDirection();
+let raquetteGauche = new Raquette($("#gauche"));
 
-//boucle afin de modifier la position de la balle et des raquettes toutes les 10 millisecondes
-//les if servent à tester les collisions avec les bordures du terrain, et ainsi de faire rebondir la balle ou la laquette
-setInterval(function()
-{
-    //appel de fonction des classes correspondant aux objets
-    balle.bouger();
+//attribution du boolean de positionnement du joueur
+joueur0.cote = 0;
+joueur1.cote = 1;
 
-    raquetteGauche.bouger();
-    
-    raquetteDroite.bouger();
+raquetteGauche.checkJoueur(terrain);
+raquetteDroite.checkJoueur(terrain);
+
+raquetteGauche.positionY = terrain.hauteur/2-(raquetteGauche.hauteur/2);
+raquetteDroite.positionY = terrain.hauteur/2-(raquetteDroite.hauteur/2);
+
+//ecoute des touches pour le controles des raquettes
+terrain.jouer(joueur0, joueur1, raquetteGauche,raquetteDroite);
+
+//lancement boucle de jeu
+setInterval(function(){
+    balle.bouger(terrain, joueur0, joueur1);
+    raquetteGauche.bouger(terrain);
+    raquetteDroite.bouger(terrain);
 }, 10);

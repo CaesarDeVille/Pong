@@ -1,12 +1,9 @@
-/** id > class **/
-body
-{
-    /** Fond noir, couleur blanche et typographie monospace **/
-    background-color: #000000;
-    color: #ffffff;
+body {
+    /** couleurs & font **/
+    background: black;
+    color: white;
     font-family: monospace;
-    
-    /** permet de centrer les elements dans la page **/
+    /** centrer les elements **/
     display: flex;
     min-height: 100vh;
     flex-direction: column;
@@ -15,53 +12,60 @@ body
     text-align: center;
 }
 
-/** parametrage du ou des "objets" terrain **/
-#terrain
-{
-    position: relative;
-
-    border:1px solid #000;
-    border-top-color:#fff;
-    border-bottom-color:#fff;
-    
+#terrain{
+    /** Bordeure et terrain de jeu **/
+    position:relative ;
+    border: 1px solid white;
+    border-left-color: black ;
+    border-right-color: black ;
     width: 800px;
-    height : 400px;
-}
-.tilt{
-    border-color: rgb(0, 250, 0) !important;
+    height: 400px;
 }
 
-/** parametrage du ou des "objets" balle **/
-#balle
-{
+.fluo{
+    /** Zone pour le changement de couleur lors des hits**/
+    
+    border-top-color: #0f0 !important;
+    border-bottom-color: #0f0 !important;
+}
+
+.point{
+    /** Zone pour le changement de couleur lors des points**/
+    
+    border-top-color: rgb(255, 0, 0) !important;
+    border-bottom-color: rgb(255, 0, 0) !important;
+}
+
+#balle{
+    /** CSS relatif a la balle **/
     position: absolute;
-    top : 50%;
-    left: 50%;
-
-    border-radius: 100%;
+    top: 50%;
+    left:50%;
     width: 20px;
     height: 20px;
-    background-color: rgb(255, 255, 255);
+    background-color: white;
+    border-radius:100%;
 }
 
-/** parametrage du ou des "objets" raquette **/
-.raquette
-{
+.raquette{
+    /** CSS relatif la classe raquette**/
     position: absolute;
-
-    --hauteur: 25%; /** definir une variable **/
-
-    top : calc( 50% - var(--hauteur)/2 ); /** clac, faire des calculs en css // var utiliser la variable **/
-
+    --hauteur: 25%;
+    top: calc(50% - var(--hauteur)/2);
     width: 10px;
     height: var(--hauteur);
-    background-color: #fff;
+    background-color: #ffffff;
 }
-#droite
-{
+
+.raquetteFluo{
+    background-color: rgb(0, 255, 0) !important;
+}
+#gauche{
+    /**Precision pour la raquette d'id droite**/
+    left:1%;
+}
+
+#droite{
+    /**Precision pour la raquette d'id gauche**/
     right: 1%;
-}
-#gauche
-{
-    left: 1%;
 }
