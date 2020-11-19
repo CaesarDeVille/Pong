@@ -1,0 +1,67 @@
+/** id > class **/
+body
+{
+    /** Fond noir, couleur blanche et typographie monospace **/
+    background-color: #000000;
+    color: #ffffff;
+    font-family: monospace;
+    
+    /** permet de centrer les elements dans la page **/
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/** parametrage du ou des "objets" terrain **/
+#terrain
+{
+    position: relative;
+
+    border:1px solid #000;
+    border-top-color:#fff;
+    border-bottom-color:#fff;
+    
+    width: 800px;
+    height : 400px;
+}
+.tilt{
+    border-color: rgb(0, 250, 0) !important;
+}
+
+/** parametrage du ou des "objets" balle **/
+#balle
+{
+    position: absolute;
+    top : 50%;
+    left: 50%;
+
+    border-radius: 100%;
+    width: 20px;
+    height: 20px;
+    background-color: rgb(255, 255, 255);
+}
+
+/** parametrage du ou des "objets" raquette **/
+.raquette
+{
+    position: absolute;
+
+    --hauteur: 25%; /** definir une variable **/
+
+    top : calc( 50% - var(--hauteur)/2 ); /** clac, faire des calculs en css // var utiliser la variable **/
+
+    width: 10px;
+    height: var(--hauteur);
+    background-color: #fff;
+}
+#droite
+{
+    right: 1%;
+}
+#gauche
+{
+    left: 1%;
+}
