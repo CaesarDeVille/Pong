@@ -20,10 +20,10 @@ class Terrain{
     jouer(joueur0, joueur1, raquetteGauche, raquetteDroite){
         window.addEventListener("keydown", function (event) {
             if (event.defaultPrevented) { return}
-            if(event.key === "a"){
+            if(event.key === "z"){
                 raquetteGauche.monter();
             }
-            else if (event.key === "q"){
+            else if (event.key === "s"){
                 raquetteGauche.descendre();
             }
             else if (event.key === "p"){
