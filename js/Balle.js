@@ -1,50 +1,41 @@
 //implementation classe  balle
 class Balle{
-    /**
-     * constructeur de la classe Balle
-     * @param $element
-     */
+    //constructeur de la classe Balle
     constructor($element){ 
         this.$element = $element;
+
         this.positionX = parseInt(this.$element.css("left"));
         this.positionY = parseInt(this.$element.css("top"));
         this.rayon = parseInt(this.$element.css("width"));
+
         this.vitesseXFacteur = 1;
         this.limiteFacteur = 8 //faire en fonction de la largeur du terrain 
+
         this.vitesseXSens = this.calculAleatoire();
         this.vitesseYSens = (Math.random()*6) - 3; //entre -3 et 3 : 0 fais du tout droit
         //this.vitesseYSens = 0;
+
         this.vitesseYFacteur = 1;
         this.centreX = this.positionX;
         this.centreY = this.positionY
 
     }
 
-    /**
-     * getter
-     * @returns {*}
-     */
+    //getter and setter
     get bas() {
         return this.positionY + this.rayon;
     }
     get droite() {
         return this.positionX + this.rayon;
     }
-
-    /**
-     * setter
-     * @param value
-     */
     set bas(value) {
         this.positionY = value - this.rayon;
     }
     set droite(value) {
         this.positionX = value - this.rayon;
     }
-
-    /**
-     * fonction permettant de reset la balle au centre après un point marqué
-     */
+    //fonction permettant de reset la balle au centre après un point marqué
+    
     retourCentre(){
         this.positionX =  this.centreX;
         this.positionY =  this.centreY;
@@ -54,17 +45,12 @@ class Balle{
         this.vitesseYFacteur =1;
     }
 
-    /**
-     * fonction permettant de definir le sens de depart de la balle aléatoirement
-     * @returns {number}
-     */
+    //fonction permettant de definir le sens de depart de la balle aléatoirement
     calculAleatoire(){
         return Math.random() < 0.5 ? 1 : -1; //c'est un genre de if : else
     }
 
-    /**
-     * fonction permettant de calculer la vitesse de X notamment l'acceleration
-     */
+    //fonction permettant de calculer la vitesse de X notamment l'acceleration
     calculVitesseX(){
         //rajout de 1 facteur
         if (this.vitesseXFacteur < this.limiteFacteur){
@@ -73,12 +59,7 @@ class Balle{
         else {/*rien car la vitesse ne peux pas depasser la limite*/}
     }
 
-    /**
-     * fonction de calcul de deplacement
-     * @param terrain
-     * @param joueur0
-     * @param joueur1
-     */
+    //fonction de calcul de deplacement
     bouger(terrain, joueur0, joueur1){
         this.positionX = this.positionX + (this.vitesseXFacteur * this.vitesseXSens);
         this.positionY += (this.vitesseYFacteur * this.vitesseYSens);
@@ -88,20 +69,13 @@ class Balle{
         this.majHTML();
     }
 
-    /**
-     * fonction de mise a jour graphique
-     */
+    //fonction de mise a jour graphique
     majHTML(){
         this.$element.css("left",this.positionX);
         this.$element.css("top",this.positionY);
     }
 
-    /**
-     * fonction permettant de faire rebondir la balle sur les mur et de changer la couleur du terrain lors du contact
-     * @param terrain
-     * @param joueur0
-     * @param joueur1
-     */
+    //fonction permettant de faire rebondir la balle sur les mur et de changer la couleur du terrain lors du contact
     rebond(terrain, joueur0, joueur1){
         //impact avec un bords de terrain coté joueur
         if(this.positionX <= 0 ||this.droite >= terrain.largeur){
@@ -136,10 +110,7 @@ class Balle{
     
     }
 
-    /**
-     * fonction permettant le rebond sur les raquettes
-     * @param raquette
-     */
+    //fonction permettant le rebond sur les raquettes
     rebondSurRaquette(raquette){
         //zone pour la raquette de gauche
         if(raquette.gauche){
@@ -157,7 +128,6 @@ class Balle{
                     },200
                     );
                     this.calculVitesseX();
-                    this.vitesseYSens = raquette.calculRebond(this.positionY);
                 }
             }
         }
@@ -177,9 +147,8 @@ class Balle{
                     },200
                     );
                     this.calculVitesseX();
-                    this.vitesseYSens = raquette.calculRebond(this.positionY);
                 }
             }
+        }
     }
-}
 }
