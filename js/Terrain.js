@@ -37,7 +37,7 @@ class Terrain{
 
           window.addEventListener("keyup", function (event) {
             if (event.defaultPrevented) { return}
-            if(event.key === "a" || event.key === "q"){
+            if(event.key === "z" || event.key === "s"){
                 raquetteGauche.arreterDeBouger();
             }
             else if(event.key === "p" || event.key === "m"){
